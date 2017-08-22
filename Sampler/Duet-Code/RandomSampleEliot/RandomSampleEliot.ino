@@ -35,7 +35,7 @@ AudioConnection c10(mix2, 0, dac, 0);
 
 Bounce button0 = Bounce(22, 5);
 
-boolean samplePlayed = false;
+boolean samplePlaying = false;
 
 void setup() {
   pinMode(22, INPUT_PULLUP);
@@ -51,27 +51,30 @@ void setup() {
 }
 
 void loop() {
-  if (button0.fallingEdge() && samplePlayed == false) {
+  Serial.print(samplePlaying);
+  button0.update();
+  
+  if (button0.fallingEdge() && !samplePlaying) {
+    samplePlaying = true;
     int randNumber = random(0, 5);
     Serial.print(randNumber);
+  
     if(randNumber == 0) {
       sound0.play(AudioSampleBeep);
-      samplePlayed = true;
     } else if(randNumber == 1) {
       sound1.play(AudioSampleEeeee);
-      samplePlayed = true;
     } else if(randNumber == 2) {
       sound2.play(AudioSampleRibbet);
-      samplePlayed = true;
     } else if(randNumber == 3) {
       sound3.play(AudioSampleStop);
-      samplePlayed = true;
     } else if(randNumber == 4) {
       sound4.play(AudioSampleTherewego);
-      samplePlayed = true;
     }
-  } else if(button0.risingEdge()) {
-    samplePlayed = false;
+  }
+  
+  if(button0.risingEdge()) {
+    samplePlaying = false;
   }
 }
+
 
