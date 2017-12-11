@@ -95,6 +95,20 @@ void setup(void) {
   Serial.println("Waiting for an ISO14443A Card ...");
 }
 
+bool UidIsEqual(uint8_t* LeftID, uint8_t* RightID, uint8_t Length)
+{
+  bool bIsEqual = true;
+  for(int i=0; i<Length; i++)
+  {
+    if(LeftID[i] != RightID[i])
+    {
+      bIsEqual = false;
+      break;
+    }
+  }
+
+  return bIsEqual;
+}
 
 void loop(void) {
   uint8_t success;
@@ -105,6 +119,24 @@ void loop(void) {
   // 'uid' will be populated with the UID, and uidLength will indicate
   // if the uid is 4 bytes (Mifare Classic) or 7 bytes (Mifare Ultralight)
   success = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength);
+
+  // Define your UID's this way:
+  uint8_t CardA[] = { 0x47, 0xAE, 0x4E, 0x39};   //0x47 0xAE 0x4E 0x39
+  uint8_t CardB[] = { 0x6B, 0x9C, 0x8F, 0x15};
+
+  // Use this function "UidIsEqual" to compare two uids to see if they match
+  if (UidIsEqual(CardA, uid, 4))
+  {
+    Serial.println("Match A");
+  }
+  else if (UidIsEqual(CardB, uid, 4))
+  {
+    Serial.println("Match B");
+  }
+  else
+  {
+    Serial.println("NO MATCH");
+  }
   
   if (success) {
     // Display some basic information about the card
