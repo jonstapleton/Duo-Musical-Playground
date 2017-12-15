@@ -88,6 +88,7 @@ Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 #endif
 
 void setup(void) {
+  AudioMemory(20);
   pinMode(speaker, OUTPUT);
   #ifndef ESP8266
     while (!Serial); // for Leonardo/Micro/Zero
