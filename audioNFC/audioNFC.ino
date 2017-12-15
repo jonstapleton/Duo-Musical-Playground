@@ -52,7 +52,6 @@ please support Adafruit and open-source hardware by purchasing
 products from Adafruit!
 */
 /**************************************************************************/
-#include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_PN532.h>
 
