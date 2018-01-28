@@ -38,13 +38,16 @@ void MakeRest(int duration)
 
 void song(int duration)
 {
-  MakeNote(C, duration);
-  MakeNote(F, duration);
+  MakeNote(C, duration*2);
   MakeNote(D, duration);
+  MakeNote(F, duration*2);
+  MakeNote(C, duration);
+  MakeNote(E, duration*2);
+  MakeNote(G, duration);
 }
 
 void song()
 {
-  int duration = 300; // Change the number here to make the song faster or slower.
+  int duration = 200; // Change the number here to make the song faster or slower.
   song(duration);
 }
