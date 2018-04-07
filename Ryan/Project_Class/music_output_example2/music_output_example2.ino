@@ -1,4 +1,4 @@
-int speaker = 5;   //make sure this matches the pin of your speaker
+int speaker = 9;   //make sure this matches the pin of your speaker
 
 //music notes. Arduino reads pitch as frequencies in hertz. 
 //The following list of variables lets us use letter names of the 
