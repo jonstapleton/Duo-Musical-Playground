@@ -42,8 +42,8 @@ SoftwareSerial XBee(0, 1); // Arduino RX, TX (XBee Dout, Din)
 void setup()
 {
   //Begin serial transmition:
-  Serial.begin(115200);
-  XBee.begin(115200);
+  Serial.begin(9600);
+  XBee.begin(9600);
   //Set output pins (+ current):
   pinMode(a1pinV, OUTPUT);
   digitalWrite(a1pinV, HIGH);
@@ -61,15 +61,66 @@ void setup()
 
 void loop()
 {
-  // In loop() we continously check to see if a command has been
-  //  received.
-  if (XBee.available())
-  {
-    readAPin();  // Read analog pin
-  }
+  // get a pin value
+  // write that value to the xbee serial 
+  int a1zValue = analogRead(a1pinZ);
+  int a2zValue = analogRead(a2pinZ);
+  int aCxValue = analogRead(aCpinX);
+  int aCyValue = analogRead(aCpinY);
+  int a3zValue = analogRead(a3pinZ);
+  int a4zValue = analogRead(a4pinZ);
+
+  
+  XBee.write("a1z");
+  XBee.write(a1zValue);
+  XBee.write("\n");
+
+  Serial.print("a1z");
+  Serial.print(a1zValue);
+  Serial.print("\n");
+
+  XBee.write("a2z");
+  XBee.write(a2zValue);
+  XBee.write("\n");
+
+  Serial.print("a2z");
+  Serial.print(a2zValue);
+  Serial.print("/n");
+
+  XBee.write("aCx");
+  XBee.write(aCxValue);
+  XBee.write("\n");
+
+  Serial.print("aCx");
+  Serial.print(aCxValue);
+  Serial.print("/n");
+
+  XBee.write("aCx");
+  XBee.write(aCxValue);
+  XBee.write("\n");
+
+  Serial.print("aCy");
+  Serial.print(aCyValue);
+  Serial.print("/n");
+
+  XBee.write("a3z");
+  XBee.write(a3zValue);
+  XBee.write("\n");
+
+  Serial.print("a3z");
+  Serial.print(a3zValue);
+  Serial.print("/n");  
+
+  XBee.write("a4z");
+  XBee.write(a4zValue);
+  XBee.write("\n");
+
+  Serial.print("a4z");
+  Serial.print(a4zValue);
+  Serial.print("/n");
 }
 
-void loop()
+void PrintAccelData()
 { 
   // Printing analog data received from accelerometers
   Serial.println();
@@ -87,7 +138,8 @@ void loop()
   Serial.print(',');
   Serial.print(analogRead(aCpinY)); // Central accelerometer reading (y)
   //Serial.print(tranG);
-  delay(10);
 }
 
 ////////////////////////////////////////////////////////
+
+

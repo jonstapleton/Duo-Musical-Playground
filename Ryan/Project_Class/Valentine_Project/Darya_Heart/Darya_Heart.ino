@@ -73,7 +73,7 @@ void song(int duration)
   MakeNote(Cs, duration/2);
   MakeNote(D, duration/2);
 
-  MakeNote(E, duration); //Change the letter to change the note that plays.
+  MakeNote(E, duration); 
   MakeNote(Ahigh, duration);
   MakeNote(Fs, duration); 
   MakeNote(Ahigh, duration);
