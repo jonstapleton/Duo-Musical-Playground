@@ -70,54 +70,56 @@ void loop()
   int a3zValue = analogRead(a3pinZ);
   int a4zValue = analogRead(a4pinZ);
 
+  XBee.write("frame ");
+  Serial.print("frame ");
   
-  XBee.write("a1z");
+//  XBee.write("a1z ");
   XBee.write(a1zValue);
-  XBee.write("\n");
+  XBee.write(" ");
 
-  Serial.print("a1z");
+//  Serial.print("a1z ");
   Serial.print(a1zValue);
-  Serial.print("\n");
+  Serial.print(" ");
 
-  XBee.write("a2z");
-  XBee.write(a2zValue);
-  XBee.write("\n");
-
-  Serial.print("a2z");
-  Serial.print(a2zValue);
-  Serial.print("/n");
-
-  XBee.write("aCx");
-  XBee.write(aCxValue);
-  XBee.write("\n");
-
-  Serial.print("aCx");
-  Serial.print(aCxValue);
-  Serial.print("/n");
-
-  XBee.write("aCx");
-  XBee.write(aCxValue);
-  XBee.write("\n");
-
-  Serial.print("aCy");
-  Serial.print(aCyValue);
-  Serial.print("/n");
-
-  XBee.write("a3z");
-  XBee.write(a3zValue);
-  XBee.write("\n");
-
-  Serial.print("a3z");
-  Serial.print(a3zValue);
-  Serial.print("/n");  
-
-  XBee.write("a4z");
-  XBee.write(a4zValue);
-  XBee.write("\n");
-
-  Serial.print("a4z");
-  Serial.print(a4zValue);
-  Serial.print("/n");
+//  XBee.write("a2z");
+//  XBee.write(a2zValue);
+//  XBee.write("\n");
+//
+//  Serial.print("a2z");
+//  Serial.print(a2zValue);
+//  Serial.print("/n");
+//
+//  XBee.write("aCx");
+//  XBee.write(aCxValue);
+//  XBee.write("\n");
+//
+//  Serial.print("aCx");
+//  Serial.print(aCxValue);
+//  Serial.print("/n");
+//
+//  XBee.write("aCx");
+//  XBee.write(aCxValue);
+//  XBee.write("\n");
+//
+//  Serial.print("aCy");
+//  Serial.print(aCyValue);
+//  Serial.print("/n");
+//
+//  XBee.write("a3z");
+//  XBee.write(a3zValue);max
+//  XBee.write("\n");
+//
+//  Serial.print("a3z");
+//  Serial.print(a3zValue);
+//  Serial.print("/n");  
+//
+//  XBee.write("a4z");
+//  XBee.write(a4zValue);
+//  XBee.write("\n");
+//
+//  Serial.print("a4z");
+//  Serial.print(a4zValue);
+//  Serial.print("/n");
 }
 
 void PrintAccelData()
