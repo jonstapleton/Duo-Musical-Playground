@@ -91,3 +91,9 @@
 #define NOTE_CS8 4435
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
+
+void playNote(int note, int duration);
+
+void playNotes(int* notes, int* durations, int numNotes);
+
+void tempo(float bpm);
