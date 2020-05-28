@@ -1,4 +1,4 @@
-int speaker = 5;   //make sure this matches the pin of your speaker
+int speaker = 9;   //make sure this matches the pin of your speaker
 
 //music notes. Arduino reads pitch as frequencies in hertz. 
 //The following list of variables lets us use letter names of the 
@@ -38,13 +38,16 @@ void MakeRest(int duration)
 
 void song(int duration)
 {
-  MakeNote(C, duration);
-  MakeNote(F, duration);
+  MakeNote(C, duration*2);
   MakeNote(D, duration);
+  MakeNote(F, duration*2);
+  MakeNote(C, duration);
+  MakeNote(E, duration*2);
+  MakeNote(G, duration);
 }
 
 void song()
 {
-  int duration = 300; // Change the number here to make the song faster or slower.
+  int duration = 200; // Change the number here to make the song faster or slower.
   song(duration);
 }

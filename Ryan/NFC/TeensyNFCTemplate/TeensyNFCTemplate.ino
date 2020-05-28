@@ -1,16 +1,3 @@
-
-int speaker = 6;
-
-//notes
-int C = 1046;
-int D = 1175;
-int E = 1319;
-int F = 1397;
-int G = 1568;
-int A = 1760;
-int B = 1976;
-int C1 = 2093;
-
 /**************************************************************************/
 /*! 
     @file     readMifare.pde
@@ -84,7 +71,6 @@ Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 #endif
 
 void setup(void) {
-  pinMode(speaker, OUTPUT);
   #ifndef ESP8266
     while (!Serial); // for Leonardo/Micro/Zero
   #endif
@@ -142,18 +128,14 @@ void loop(void) {
   if (UidIsEqual(CardA, uid, 4))
   {
     Serial.println("Match A");
-    tone(speaker, A);
-
   }
   else if (UidIsEqual(CardB, uid, 4))
   {
     Serial.println("Match B");
-    tone(speaker, B);
   }
   else
   {
     Serial.println("NO MATCH");
-    noTone(speaker);
   }
   
   if (success) {
